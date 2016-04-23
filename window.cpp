@@ -37,16 +37,25 @@ int movePos1;
 
 void Window::setImage()
 {
-    QPixmap pix(imagename);
-    ui->label_pic->setPixmap(pix);
+    if(textureError==1)
+    {
+        ui->map->setEnabled(false);
+    }
+    else
+    {
+
+        QPixmap pix(imagename);
+        ui->label_pic->setPixmap(pix);
+    }
+
 }
 
 void Window::on_map_clicked()
 {
     MDialog md;
     QDesktopWidget dw;
-    int x = dw.width()*0.5;
-    int y = dw.height()*0.65;
+    int x = dw.width()*0.44;
+    int y = dw.height()*0.64;
     md.setFixedSize(x,y);
     md.setModal(true);
     md.exec();

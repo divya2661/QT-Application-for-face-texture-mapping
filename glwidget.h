@@ -5,6 +5,19 @@
 #include <string>
 
 extern std::string WrlFileName;
+extern QString imagename0;
+extern int textureError;
+
+struct Image0 {
+
+   int sizeX;
+
+   int sizeY;
+
+   char *data;
+
+};
+
 
 class GLWidget : public QGLWidget
 {
@@ -24,6 +37,8 @@ public:
     GLuint texName;
 
 
+    int ImageLoad(const char *filename, Image0 *image);
+    Image0 * loadTexture();
     void setWRL(std::string filename);
     void initializeGL();
     void initialize(std::string filename);
@@ -31,6 +46,7 @@ public:
     void resizeGL(int,int);
     void initGL();
     void draw();
+
     //void displayCB();
     //void init();
     //void display();

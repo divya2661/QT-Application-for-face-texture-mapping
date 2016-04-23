@@ -1,6 +1,6 @@
 #include "mdialog.h"
 #include "ui_mdialog.h"
-#include "glwidget1.h"
+#include "glwidget.h"
 #include <QDebug>
 
 MDialog::MDialog(QWidget *parent) :
@@ -20,7 +20,6 @@ void MDialog::on_close_clicked()
     this->close();
 }
 
-
 void MDialog::on_horizontalSlider_sliderMoved(int position)
 {
     rotateAngle1 = position;
@@ -31,7 +30,6 @@ void MDialog::on_horizontalSlider_2_sliderMoved(int position)
     movePos1 = position;
     //qDebug()<<movePos1<<'\n';
 }
-
 
 void MDialog::on_zoomMapIn_clicked()
 {
@@ -103,4 +101,16 @@ void MDialog::on_rotateMapMZ_clicked()
 {
     GLWidget1 *glw = new GLWidget1;
     glw->minusZrotation1(rotateAngle1);
+}
+
+void MDialog::on_light_clicked()
+{
+   GLWidget1 *glw = new GLWidget1;
+   glw->lightOnOf();
+}
+
+void MDialog::on_lightOf_clicked()
+{
+     GLWidget1 *glw = new GLWidget1;
+     glw->disableLight();
 }

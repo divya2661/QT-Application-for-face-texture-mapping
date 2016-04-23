@@ -8,6 +8,8 @@ QT       += core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+CONFIG+=qml_debug
+
 TARGET = openGL
 TEMPLATE = app
 INCLUDEPATH += /home/divya/Qt/boost/
@@ -18,7 +20,8 @@ SOURCES += main.cpp\
     function.cpp \
     dialog.cpp \
     glwidget1.cpp \
-    mdialog.cpp
+    mdialog.cpp \
+    errordialog.cpp
 
 HEADERS  += window.h \
     glwidget.h \
@@ -28,11 +31,13 @@ HEADERS  += window.h \
     grammer.hpp \
     dialog.h \
     glwidget1.h \
-    mdialog.h
+    mdialog.h \
+    errordialog.h
 
 FORMS    += window.ui \
     dialog.ui \
-    mdialog.ui
+    mdialog.ui \
+    errordialog.ui
 
 LIBS += -lglut -lGLU
 

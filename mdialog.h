@@ -1,6 +1,13 @@
 #ifndef MDIALOG_H
 #define MDIALOG_H
-
+#include "glwidget.h"
+#include <GL/glut.h>
+#include <GL/freeglut.h>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
 #include <QDialog>
 
 namespace Ui {
@@ -17,6 +24,7 @@ public:
 
     int rotateAngle1=0;
     int movePos1=0;
+
 
 
 private slots:
@@ -50,6 +58,10 @@ private slots:
     void on_rotateMapPZ_clicked();
 
     void on_rotateMapMZ_clicked();
+
+    void on_light_clicked();
+
+    void on_lightOf_clicked();
 
 private:
     Ui::MDialog *ui;

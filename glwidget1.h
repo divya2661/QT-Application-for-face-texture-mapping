@@ -35,7 +35,6 @@ public:
     float cameraDistance=0.0;
     GLuint texName;
 
-
     int ImageLoad(const char *filename, Image *image);
     Image * loadTexture();
     void setWRL(std::string filename);
@@ -45,6 +44,9 @@ public:
     void resizeGL(int,int);
     void init();
     void display();
+    void enableLight();
+    void disableLight();
+    void lightOnOf();
     //void initGL();
     //void displayCB();
     //void draw();

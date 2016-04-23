@@ -24,18 +24,18 @@ std::vector<Point> initialLeftFaceP;
 std::vector<Point> initialMiddleFaceP;
 std::vector<Point> initialRightFaceP;
 
-float Pxmin = 10000,Pxmax = -10000;
-float Pymin = 10000,Pymax = -10000;
-float Pzmin = 10000,Pzmax = -10000;
+double Pxmin = 10000,Pxmax = -10000;
+double Pymin = 10000,Pymax = -10000;
+double Pzmin = 10000,Pzmax = -10000;
 
-float Lxmin = 10000,Lxmax = -10000;
-float Lymin = 10000,Lymax = -10000;
+double Lxmin = 10000,Lxmax = -10000;
+double Lymin = 10000,Lymax = -10000;
 
-float Rxmin = 10000,Rxmax = -10000;
-float Rymin = 10000,Rymax = -10000;
+double Rxmin = 10000,Rxmax = -10000;
+double Rymin = 10000,Rymax = -10000;
 
-float Mxmin = 10000,Mxmax = -10000;
-float Mymin = 10000,Mymax = -10000;
+double Mxmin = 10000,Mxmax = -10000;
+double Mymin = 10000,Mymax = -10000;
 
 std::string function::readFile(std::string fileName) {
 
@@ -82,9 +82,6 @@ bool function::getPoint(std::string fileName, std::vector<Point>&result) {
     }
     return ans;
 }
-
-
-
 
 bool function::getIndex(std::string fileName, std::vector<Index>&result) {
 
@@ -268,14 +265,13 @@ void function::rotateMesh()
     }
 }
 
-
 void function::perspectiveTransformation()
 {
     Point pt;
-    float xprp = (Pxmin+Pxmax)/2;
-    float yprp = (Pymin+Pymax)/2;
-    float zprp = (Pzmax*3)/2;
-    float zvp = Pzmax*(1.2);
+    double xprp = (Pxmin+Pxmax)/2;
+    double yprp = (Pymin+Pymax)/2;
+    double zprp = (Pzmax*3)/2;
+    double zvp = Pzmax*(1.2);
     for(unsigned i=0; i<LeftFaceP.size();i++)
     {
         pt.x = ((LeftFaceP[i].x)*(zprp-zvp))/(zprp-LeftFaceP[i].z) +

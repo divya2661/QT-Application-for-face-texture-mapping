@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>face_image002.jpg</file>
-        <file>../../../Desktop/sexy.bmp</file>
         <file>sexy.bmp</file>
     </qresource>
 </RCC>

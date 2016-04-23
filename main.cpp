@@ -18,7 +18,8 @@
 #include <boost/spirit/include/phoenix_core.hpp>
 #include <boost/spirit/include/phoenix_operator.hpp>
 #include <boost/bind.hpp>
-
+#include <QtDeclarative/qdeclarative.h>
+#include <QtDeclarative/qdeclarativedebug.h>
 //header file to define grammer for parsing
 #include "grammer.hpp"
 #include "function.h"
@@ -28,6 +29,7 @@
 
 int main(int argc, char *argv[])
 {
+    //QDeclarativeDebuggingEnabler enabler;
     glutInit(&argc,argv);
     QApplication a(argc, argv);
     QDesktopWidget dw;
@@ -37,6 +39,7 @@ int main(int argc, char *argv[])
     w.setFixedSize(x,y);
     w.setInitialImage();
     Dialog d;
+
     d.setModal(true);
     d.setFixedSize(x*.55,y*.5);
     if(d.exec()==QDialog::Accepted)

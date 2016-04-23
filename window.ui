@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Window</string>
+   <string>Main</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="GLWidget" name="widget" native="true">
@@ -23,6 +23,11 @@
       <height>361</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">#widget{
+border:3px solid gray;
+}</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_pic">
     <property name="geometry">
@@ -32,6 +37,11 @@
       <width>271</width>
       <height>361</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#label_pic{
+border:3px solid gray;
+}</string>
     </property>
     <property name="frameShadow">
      <enum>QFrame::Plain</enum>
@@ -110,6 +120,9 @@
       <height>23</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string>Zoom In</string>
     </property>
@@ -130,11 +143,17 @@
    <widget class="QPushButton" name="map">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>460</x>
       <y>390</y>
-      <width>261</width>
+      <width>271</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#map{
+	
+	background-color: rgb(85, 170, 255);
+}</string>
     </property>
     <property name="text">
      <string>MAP</string>
@@ -282,11 +301,17 @@
    <widget class="QPushButton" name="closemain">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>460</x>
       <y>450</y>
-      <width>261</width>
+      <width>271</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#closemain{
+background-color: rgb(255, 0, 0);
+}
+</string>
     </property>
     <property name="text">
      <string>Close</string>
@@ -302,12 +327,6 @@
      <height>20</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-   </widget>
-   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

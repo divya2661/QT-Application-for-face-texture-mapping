@@ -12,16 +12,18 @@
 
 std::string WrlFileName1;
 QString imagename;
+bool lightOn=true;
 
 GLWidget1::GLWidget1(QWidget *parent) : QGLWidget(parent)
 {
     connect(&timer1,SIGNAL(timeout()),this,SLOT(updateGL()));
-    timer1.start(6);
+    timer1.start(10);
 }
 
 int GLWidget1::ImageLoad(const char *filename,Image *image)
 {
 
+    //std::cout<<"load texture"<<'\n';
     FILE *file;
 
        unsigned long size; // size of the image in bytes.
@@ -188,6 +190,9 @@ Image* GLWidget1::loadTexture(){
 
 void GLWidget1::initializeGL()
 {
+
+    glClearColor(1,1,0,1);
+
    // std::cout<<"initializeGL1"<<'\n';
     function *GetData = new function;
 
@@ -203,7 +208,7 @@ void GLWidget1::initializeGL()
     GetData->minMax(GetPoint);
     GetData->divide_mesh(GetPoint,GetIndex);
     GetData->rotateMesh();
-    //GetData.perspectiveTransformation();
+   // GetData->perspectiveTransformation();
     GetData->parallelTransformation();
     GetData->minMaxTransformated();
     GetData->normalise();
@@ -228,6 +233,16 @@ void GLWidget1::initializeGL()
     }
 
     numTriangle = MiddleFaceP.size();
+//    glEnable(GL_LIGHTING);
+//    glEnable(GL_LIGHT1);
+//    // Properties of the objects' materials
+//    glMaterialfv(GL_FRONT, GL_SPECULAR, specularity); // Reflectance
+//    glMaterialfv(GL_FRONT, GL_SHININESS, shininess); // Shininess
+
+//    glLightfv(GL_LIGHT1,GL_AMBIENT,LightAmbient);
+//    glLightfv(GL_LIGHT1,GL_DIFFUSE,LightDiffuse);
+//    glLightfv(GL_LIGHT1,GL_SPECULAR,LightSpecular);
+//    glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
 
     glGetIntegerv(GL_MAX_ELEMENTS_VERTICES, &maxVertices);
     glGetIntegerv(GL_MAX_ELEMENTS_INDICES, &maxIndices);
@@ -238,8 +253,9 @@ void GLWidget1::initializeGL()
 
 void GLWidget1::paintGL()
 {
-   // std::cout<<"paint1"<<'\n';
+
     display();
+
 }
 
 
@@ -263,7 +279,7 @@ void GLWidget1::init()
                                                 // enable /disable features
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
-
+    glShadeModel(GL_SMOOTH);
     Image *image1 = loadTexture();
 
     if(image1 == NULL){
@@ -290,6 +306,7 @@ void GLWidget1::init()
 
 void GLWidget1::display(){
    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
    glPushMatrix();
 
 
@@ -305,11 +322,25 @@ void GLWidget1::display(){
 
 
    glEnd();
+
    glPopMatrix();
    //glutSwapBuffers();
 }
 
 
+void GLWidget1::lightOnOf(){
+
+    if(lightOn==true)
+    {
+        qDebug("if..");
+        lightOn=false;
+    }
+    else
+    {
+        qDebug("else..");
+        lightOn=true;
+    }
+}
 
 //button trigger function
 
@@ -385,5 +416,11 @@ void GLWidget1::minusZrotation1(int angle)
     glRotatef(-angle,0.0,0.0,1.0);
 }
 
+void GLWidget1::enableLight(){
+    glEnable(GL_LIGHTING);
+}
 
+void GLWidget1::disableLight(){
+    glDisable(GL_LIGHTING);
+}
 

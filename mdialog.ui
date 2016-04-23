@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>652</width>
+    <width>607</width>
     <height>465</height>
    </rect>
   </property>
@@ -16,11 +16,16 @@
   <widget class="QPushButton" name="close">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>430</y>
+     <x>510</x>
+     <y>352</y>
      <width>80</width>
-     <height>23</height>
+     <height>101</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#close{
+background-color: rgb(255, 0, 0);
+}</string>
    </property>
    <property name="text">
     <string>Close</string>
@@ -31,9 +36,18 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>481</width>
+     <width>581</width>
      <height>331</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>Mapped</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#widget{
+border:3px solid gray;
+
+}</string>
    </property>
   </widget>
   <widget class="QSlider" name="horizontalSlider">
@@ -279,7 +293,7 @@
   <customwidget>
    <class>GLWidget1</class>
    <extends>QWidget</extends>
-   <header location="global">glwidget1.h</header>
+   <header>glwidget1.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
